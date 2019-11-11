@@ -3,7 +3,7 @@ import sys
 
 poi_set = set()
 uuid_set = set()
-with open(sys.argv[0]) as f:
+with open(sys.argv[1]) as f:
     for line in f:
         fields = line.split(" ")
         for field in fields:
@@ -13,7 +13,7 @@ with open(sys.argv[0]) as f:
             else:
                 uuid_set.add(val)
 
-with open(sys.argv[1], "w") as f:
+with open(sys.argv[2], "w") as f:
     for poi in poi_set:
         f.write(str(poi) + " 1\n")
     for uuid in uuid_set:
