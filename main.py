@@ -19,7 +19,7 @@ def parse_args():
     parser.add_argument('--log', required=True, type=str, help='log directory')
     parser.add_argument('--log-interval', default=-1, type=int, help='log intervals. -1 means per epoch')
     parser.add_argument('--max-keep-model', default=10, type=int, help='number of models to keep saving')
-    parser.add_argument('--embedding-dim', default=100, type=int, help='embedding dimensions')
+    parser.add_argument('--embedding-dim', default=8, type=int, help='embedding dimensions')
     parser.add_argument('--negative-samples', default=5, type=int, help='number of negative samples')
     parser.add_argument('--care-type', default=1, type=int,
                         help='care type or not. if 1, it cares (i.e. heterogeneous negative sampling). If 0, it does not care (i.e. normal negative sampling). ')

@@ -18,7 +18,7 @@ class Dataset(object):
         self.type2indices = type2indices
         self.node_context_pairs = node_context_pairs
         self.prepare_sampling_dist(index2frequency, index2type, type2indices)
-        self.shffule()
+        self.shuffle()
         self.count = 0
         self.epoch = 1
 
@@ -33,7 +33,7 @@ class Dataset(object):
                     print("something is wrong!!!")
                     print(pair)
                     continue
-                index2type[nodeid2index[pair[0]]] = pair[1]
+                [nodeid2index[pair[0]]] = pair[1]
 
         type2indices = {}
         all_types = set(index2type.values())
@@ -101,7 +101,7 @@ class Dataset(object):
         pairs = np.array([self.get_one_batch() for i in range(batch_size)])
         return pairs[:, 0], pairs[:, 1]
 
-    def shffule(self):
+    def shuffle(self):
         random.shuffle(self.node_context_pairs)
 
     def get_negative_samples(self, pos_index, num_negatives, care_type):
