@@ -132,6 +132,7 @@ def train(center_node_placeholder, context_node_placeholder, negative_samples_pl
         np_node_embeddings = tf.get_default_graph().get_tensor_by_name("embedding_matrix/embed_matrix:0")
         np_node_embeddings = sess.run(np_node_embeddings)
         np.savez(os.path.join(LOG_DIRECTORY, "node_embeddings.npz"), np_node_embeddings)
+        np.savetxt(os.path.join(LOG_DIRECTORY, "node_embeddings.txt"), np_node_embeddings)
 
         with open(os.path.join(LOG_DIRECTORY, "index2nodeid.json"), 'w') as f:
             json.dump(dataset.index2nodeid, f, sort_keys=True, indent=4)
